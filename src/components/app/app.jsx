@@ -107,6 +107,10 @@ class App extends Component {
         return raiseArr;
     };
 
+    onChangeEmployee = (data) => {
+        this.setState({ data });
+    };
+
     render() {
         const { data, term } = this.state;
         const visibleData = this.searchEmp(data, term);
@@ -122,7 +126,10 @@ class App extends Component {
                     <SearchPanel
                         onUpdateSearch={this.onUpdateSearch}
                     ></SearchPanel>
-                    <AppFilter data={visibleData}></AppFilter>
+                    <AppFilter
+                        onChangeEmployee={this.onChangeEmployee}
+                        data={visibleData}
+                    ></AppFilter>
                 </div>
 
                 <EmployeesList
